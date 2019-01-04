@@ -1,0 +1,8 @@
+
+<div class="row row-cards row-deck">
+  <% for blog in @blogs%>
+  <div class="col-sm-4 col-xl-3">
+    <%= render partial: 'blogs/blog_block', locals: {blog: blog}%>
+  </div>
+  <%end%>
+</div>

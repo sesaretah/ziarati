@@ -1,0 +1,438 @@
+fa:
+  date:
+    abbr_day_names:
+    - ی
+    - د
+    - س
+    - چ
+    - پ
+    - ج
+    - ش
+    abbr_month_names:
+    -
+    - ژانویه
+    - فوریه
+    - مارس
+    - آوریل
+    - مه
+    - ژوئن
+    - ژوئیه
+    - اوت
+    - سپتامبر
+    - اکتبر
+    - نوامبر
+    - دسامبر
+    day_names:
+    - یکشنبه
+    - دوشنبه
+    - سه‌شنبه
+    - چهارشنبه
+    - پنج‌شنبه
+    - جمعه
+    - شنبه
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%e %B %Y'
+      short: ! '%m/%d'
+    month_names:
+    -
+    - ژانویه
+    - فوریه
+    - مارس
+    - آوریل
+    - مه
+    - ژوئن
+    - ژوئیه
+    - اوت
+    - سپتامبر
+    - اکتبر
+    - نوامبر
+    - دسامبر
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: حدود یک ساعت
+        other: حدود %{count} ساعت
+      about_x_months:
+        one: حدود یک ماه
+        other: حدود %{count} ماه
+      about_x_years:
+        one: حدود یک سال
+        other: حدود %{count} سال
+      almost_x_years:
+        one: حدود یک سال
+        other: حدود %{count} سال
+      half_a_minute: نیم دقیقه
+      less_than_x_minutes:
+        one: کمتر از یک دقیقه
+        other: کمتر از %{count} دقیقه
+      less_than_x_seconds:
+        one: یک ثانیه
+        other: کمتر  از %{count} ثانیه
+      over_x_years:
+        one: بیش از یک سال
+        other: بیش از %{count} سال
+      x_days:
+        one: یک روز
+        other: ! '%{count} روز'
+      x_minutes:
+        one: یک دقیقه
+        other: ! '%{count} دقیقه'
+      x_months:
+        one: یک ماه
+        other: ! '%{count} ماه'
+      x_seconds:
+        one: یک ثانیه
+        other: ! '%{count} ثانیه'
+    prompts:
+      day: روز
+      hour: ساعت
+      minute: دقیقه
+      month: ماه
+      second: ثانیه
+      year: سال
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: باید پذیرفته شود
+      blank: نباید خالی باشد
+      confirmation: با تایید نمی‌خواند
+      empty: نمی‌تواند خالی باشد
+      equal_to: باید برابر %{count} باشد
+      even: باید زوج باشد
+      exclusion: رزرو است
+      greater_than: باید بزرگتر از %{count} باشد
+      greater_than_or_equal_to: باید بزرگتر یا برابر %{count} باشد
+      inclusion: در لیست موجود نیست
+      invalid: نامعتبر است
+      less_than: باید کمتر از %{count} باشد
+      less_than_or_equal_to: باید کمتر یا برابر %{count} باشد
+      not_a_number: عدد نیست
+      not_an_integer: عدد صحیح نیست
+      odd: باید فرد باشد
+      record_invalid: رکورد نامعتبر است %{errors}
+      taken: قبلا ثبت نام شده
+      too_long: بلند است (حداکثر %{count} کاراکتر)
+      too_short: کوتاه است (حداقل %{count} کاراکتر)
+      wrong_length: نااندازه است (باید %{count} کاراکتر باشد)
+    template:
+      body: ! 'موارد زیر مشکل داشت:'
+      header:
+        one: 1 خطا جلوی ذخیره این %{model} را گرفت
+        other: ! '%{count} خطا جلوی ذخیره این %{model} را گرفت'
+  helpers:
+    select:
+      prompt: لطفا انتخاب کنید
+    submit:
+      create: ! 'ایجاد %{model}'
+      submit: ! 'ذخیره‌ی %{model}'
+      update: ! 'بروز رسانی %{model}'
+  number:
+    currency:
+      format:
+        delimiter: ٬
+        format: ! '%n %u'
+        precision: 0
+        separator: ٫
+        significant: false
+        strip_insignificant_zeros: false
+        unit: ﷼
+    format:
+      delimiter: ٬
+      precision: 2
+      separator: ٫
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: میلیارد
+          million: میلیون
+          quadrillion: کادریلیون
+          thousand: هزار
+          trillion: تریلیون
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: بایت
+            other: بایت
+          gb: گیگابایت
+          kb: کیلوبایت
+          mb: مگابایت
+          tb: ترابایت
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ' و '
+      two_words_connector: ! ' و '
+      words_connector: ! '، '
+  time:
+    am: قبل از ظهر
+    formats:
+      default: ! '%A، %e %B %Y، ساعت %H:%M:%S (%Z)'
+      long: ! '%e %B %Y، ساعت %H:%M'
+      short: ! '%e %B، ساعت %H:%M'
+    pm: بعد از ظهر
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    models:
+        user: 'کاربر'
+    errors:
+      <<: *errors
+    attributes:
+        profile:
+            nickname: "اسم مستعار"
+            name: "نام"
+            surename: "نام خانوادگی"
+            birthdate: 'تاریخ تولد'
+            sex: 'جنسیت'
+            nickname: "اسم مستعار"
+            fathername: 'نام پدر'
+            ssn: 'کد ملی'
+            phonenumber: 'تلفن همراه'
+            mobilenumber: 'شماره همراه'
+            official_email: 'ایمیل دانشگاهی'
+            faculty: 'دانشکده'
+            rank: 'مرتبه علمی'
+            digest_email: 'ایمیل آگاهسازی'
+            email: 'ایمیل'
+        passenger:
+            name: 'نام'
+            surename: 'نام خانوادگی'
+            birthdate: 'تاریخ تولد'
+            sex: 'جنسیت'
+            tel: 'شماره تلفن'
+            ssn: 'کد ملی'
+            place_of_birth: 'محل تولد'
+            nation_id: 'ملیت'
+            passport_no: 'شماره گذرنامه '
+            father_name: 'نام پدر'
+        agency:
+            name: 'نام شرکت'
+            subdomain: 'دامنه'
+            tel: 'تلفن'
+            mobile: 'تلفن همراه'
+            fax: 'فکس'
+            telegram_channel: 'کانال تلگرام'
+            instagram_page: 'صفحه اینستاگرام'
+            email: 'ایمیل'
+            address: 'آدرس'
+            about_us: 'درباره ما'
+        advertisements:
+            title: 'عنوان '
+        tour:
+          start_date: 'رفت'
+          end_date: 'برگشت '
+          details: 'توضیحات'
+        blog:
+            title: 'عنوان'
+            content: 'متن'
+        user:
+            username: 'تلفن همراه کاربر'
+            fullname: 'نام و نام خانوادگی '
+            mobile: 'شماره تلفن همراه'
+            email: 'ایمیل'
+            login: 'نام کاربر'
+            password: 'رمز عبور'
+            password_confirmation: 'تکرار رمز عبور'
+            remember_me: 'مرا به خاطر بسپار'
+  will_paginate:
+    page_gap: "&hellip;"
+    previous_label: "قبلی"
+    next_label: "بعدی"
+  submition_date: 'زمان ثبت'
+  awaiting_advertisements: 'تبلیغات بررسی نشده'
+  copyrights: 'کلیه ی حقوق این سایت متعق است به'
+  reg_no: 'شماره ثبت'
+  ziarati: 'انجمن صنفی دفاتر خدمات زیارتی ایران'
+  cover_photo: 'عکس روی جلد '
+  new_advertisements: 'تبلیغ جدید'
+  advertisements: 'تبلیغات '
+  ready_to_start_?: 'شروع کنیم؟'
+  we_provide_you_with_lots_of_features: 'ما قابلیت های متعددی را در اختیار شما قرار می دهیم'
+  demo: 'مثال (دمو)'
+  start: 'شروع'
+  build_your_tour_and_travel_website_and_app_instantly: 'وبسایت و اپ سیاحتی و زیارتی خود را در یک دقیقه بسازید! '
+  we_provide_saas_based_online_services_for_tur_and_travel_agencies: 'ارائه خدمات ابری در زمینه فعالیت های سیاحتی و زیارتی تخصص ماست. '
+  is_agreed: 'موافقم'
+  terms_and_policy: 'با قوانین و مقرارت'
+  enter_mobile: '091XXXXXXX'
+  submit_and_view: 'ثبت و نمایش '
+  delete_this_package: 'حذف این پکیج'
+  profile_name: 'نام و نام خانوادگی'
+  profile_phone_number: 'شماره تلفن'
+  login: 'ورود'
+  search: 'جستجو'
+  blogs: 'مطالب'
+  every_file_shown_here_becomes_an_item_in_slide: 'هر فایلی که در جعبه زیر قرار بگیرد در اسلاید صفحه اول دیده خواهد شد.'
+  new_tour_packages: 'پکیج تور جدید '
+  new_blogs: 'مطلب جدید '
+  add_new_blog: 'مطلب جدید '
+  topics: 'مطالب'
+  view_in_the_first_page: 'نمایش '
+  level: 'ترتیب'
+  search: 'جستجو '
+  pictures: 'عکس ها'
+  passengers_details: 'مشخصات مسافران '
+  tour_detail: 'مشخصات تور'
+  passenger_info: 'اطلاعات مسافر'
+  verify_and_proceed: 'تایید و ادامه'
+  tour_selection: 'انتخاب تور'
+  tour_passengers: 'اطلاعات مسافر'
+  review_reservation: 'بررسی و تایید'
+  reservation: 'رزرو '
+  price_range: 'بازه قیمت'
+  add_new_tour_package: 'پکیج تور جدید '
+  railway_name: 'نام شرکت'
+  number_of_seats: 'تعداد صندلی'
+  railway_type: 'نوع قطار'
+  coupe_type: 'کوپه ای'
+  bus_type: 'اتوبوسی'
+  edit: 'ویرایش'
+  tour_form: 'فرم تورها '
+  name: 'نام'
+  duration: 'تعداد شب اقامت '
+  details: 'توضیحات'
+  type: 'ناوگان'
+  company: 'شرکت'
+  transportation_type: 'نوع'
+  transportation_time: 'زمان '
+  departure: 'رفت'
+  arrival: 'برگشت'
+  surfing: 'گشت'
+  airlines: 'هوایی'
+  railways: 'ریلی'
+  buses: 'زمینی'
+  airline: 'هوایی'
+  railway: 'ریلی'
+  bus: 'زمینی'
+  accomodation: 'اقامت'
+  transportaton: 'حمل و نقل'
+  hotels: 'هتل ها'
+  tour_dates: 'تاریخ تور'
+  prices: 'قیمت ها'
+  price_type_title: 'عنوان '
+  price_types_settings: 'تعریف انواع قیمت تور'
+  show: 'نمایش'
+  from: 'از'
+  to: 'تا '
+  new_tour: 'تور جدید '
+  number_of_tours: 'تعداد تورهای مرتبط '
+  city: 'شهر'
+  hotel_name: 'نام هتل'
+  stars: 'ستاره '
+  airline_name: 'نام ایرلاین'
+  sales_settings: 'تنظیمات فروش'
+  theme_settings: 'تنظیمات ظاهر سایت'
+  faq_settings: 'تنظیمات سوالات متداول'
+  slider_settings: 'تنظیمات اسلاید'
+  home_settings: 'تنظیمات صفحه خانه'
+  flight_settings: 'تعریف ایرلاین ها'
+  hotel_settings: 'تعریف هتل ها'
+  railways_settings: 'تعریف قطارها'
+  mobile_app_management: 'مدیریت اپ موبایل'
+  days: 'روز'
+  and: 'و'
+  nights: 'شب'
+  new_tour_package: 'فرم پکیج تور'
+  drop_files_here_to_upload: 'برای بارگذاری فایل را اینجا بیاندازید یا کلیک کنید'
+  remove_file: 'حذف فایل'
+  settings: 'تنظیمات'
+  home: 'خانه'
+  tour_packages: 'پکیج ها '
+  agency_form: 'فرم اطلاعات شرکت'
+  sign_out: 'خروج '
+  email: 'ایمیل'
+  male: 'مرد'
+  female: 'زن'
+  sign_in: 'ورود '
+  login_to_your_account: 'ورود به سامانه'
+  i_forgot_password: 'رمز خود را فراموش کرده ام'
+  dont_have_account_yet: 'هنوز ثبت نام نکرده اید؟'
+  sign_up: 'ثبت نام'
+  enter_email: 'ایمیل خود را وارد کنید'
+  already_have_account: 'قبلا ثبت نام کرده اید؟ '
+  sign_up: 'ثبت نام'
+  password: 'رمز عبور'
+  characters_minimum: 'حداقل حروف'
+  sex: 'جنسیت'
+  fullname: 'نام و نام خانوادگی'
+  fill_in_the_title: 'عنوان ...'
+  fill_in_the_content: 'متن ...'
+  submit: 'ثبت'
+  devise:
+    confirmations:
+      confirmed: حسابتان با موفقیت تایید شد. هم اکنون وارد شدید.
+      send_instructions: ظرف چند دقیقه آینده ایمیلی حاوی راهنمای تایید حسابتان دریافت خواهید کرد.
+      send_paranoid_instructions: اگر ایمیل شما قبلا در سیستم ثبت شده باشد، تا چند دقیقه‌ی دیگر یک ایمیل حاوی توضیحات چگونگی فعال‌سازی حساب‌تان دریافت می‌کنید.
+    failure:
+      already_authenticated: وارد سیستم هستید.
+      inactive: حساب شما هنوز فعال نشده است.
+      invalid: شماره یا رمز عبور غیر معتبر
+      last_attempt: شما تنها یک فرصت دیگر دارید قبل از این‎که حسابتان غیرفعال شود.
+      locked: حسابتان قفل شده است.
+      not_found_in_database: شماره یا رمز عبور نامعتبر
+      timeout: نشست شما منقضی شده است. برای ادامه دوباره وارد شوید.
+      unauthenticated: پیش از ادامه باید وارد شوید یا ثبت نام کنید.
+      unconfirmed: باید حسابتان را قبل از ادامه تایید کنید.
+    mailer:
+      confirmation_instructions:
+        subject: راهنمای تایید
+      reset_password_instructions:
+        subject: راهنمای بازنشانی رمز عبور
+      unlock_instructions:
+        subject: راهنمای باز کردن
+    omniauth_callbacks:
+      failure: امکان استفاده از مجوز %{kind} نبود زیرا "%{reason}".
+      success: با موفقیت مجوز استفاده از  %{kind} دریافت شد.
+    passwords:
+      no_token: شما نمی‌توانید بدون استفاده از یک لینک بازنشانی رمز به این صفحه دسترسی پیدا کنید. اگر از طریق یک ایمیل بازنشانی رمز عبور به این صفحه رسیده‌اید، مطمئن شوید که از کل URL فرستاده شده استفاده کرده‌اید.
+      send_instructions: ظرف چند دقیقه آینده ایمیلی حاوی راهنمای بازگرداندن رمز عبورتان دریافت خواهید کرد.
+      send_paranoid_instructions: اگر ایمیل شما قبلا در سیستم ثبت شده باشد، تا چند دقیقه‌ی دیگر یک لینک بازنشانی رمز عبور دریافت می‌کنید.
+      updated: رمز عبورتان با موفقیت تغییر کرد. اکنون وارد شدید.
+      updated_not_active: رمز عبور با موفقیت تغییر یافت.
+    registrations:
+      destroyed: بدرود! حسابتان لغو شد. به امید دیدار دوباره.
+      signed_up: خوش آمدید! با موفقیت ثبت نام کردید.
+      signed_up_but_inactive: شما با موفقیت ثبت نام شده اید؛ ولی هنوز نمی‌توانید وارد شوید چون حساب‌تان هنوز فعال نشده.
+      signed_up_but_locked: شما با موفقیت ثبت نام شده اید؛ ولی هنوز نمی‌توانید وارد شوید چون حساب‌تان قفل شده.
+      signed_up_but_unconfirmed: یک ایمیل حاوی لینک تایید حساب برای شما فرستاده شده. لطفا برای فعال کردن حساب‌تان آن لینک را باز کنید.
+      update_needs_confirmation: حساب شما با موفقیت به روز شد، اما شما باید ایمیل جدیدتان را را تایید کنید. لطفا ایمیل‌تان را چک کنید و روی لینک تایید حساب کاربری کلیک کنید تا ایمیل جدیدتان تایید شود.
+      updated: به روز رسانی حسابتان با موفقیت انجام شد.
+    sessions:
+      signed_in: ورود موفق.
+      signed_out: خروج موفق.
+    unlocks:
+      send_instructions: ایمیلی حاوی راهنمای باز کردن حسابتان در چند دقیقه آینده به شما ارسال خواهد شد.
+      send_paranoid_instructions: اگر حساب شما وجود داشته باشد، تا چند دقیقه‌ی دیگر یک ایمیل حاوی توضیحات نحوه‌ی باز کردن قفل حساب‌تان برای شما ارسال می‌شود.
+      unlocked: حسابتان با موفقیت باز شد. اکنون وارد شدید.
+  errors:
+    messages:
+      already_confirmed: قبلا تایید شده است
+      confirmation_period_expired: باید در مدت %{period} تایید می‌شد، لطفا یکی دیگر درخواست نمایید
+      expired: منقضی شده. لطفا یکی دیگر درخواست کنید.
+      not_found: یافت نشد
+      not_locked: قفل نشده است
+      not_saved:
+        one: '۱ خطا جلوی ذخیره %{resource} را گرفت:'
+        other: '%{count} خطا جلوی ذخیره این %{resource} را گرفت:'

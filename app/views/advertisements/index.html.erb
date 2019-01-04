@@ -1,0 +1,16 @@
+
+<div class="row row-cards row-deck">
+  <% for advertisement in @major_ads%>
+  <div class="col-sm-3 col-xl-3">
+    <%= render partial: 'advertisements/advertisement_block', locals: {advertisement: advertisement}%>
+  </div>
+  <%end%>
+</div>
+
+<div class="row row-cards row-deck">
+  <% for advertisement in @minor_ads%>
+  <div class="col-sm-3 col-xl-3">
+    <%= render partial: 'advertisements/advertisement_block', locals: {advertisement: advertisement}%>
+  </div>
+  <%end%>
+</div>
