@@ -1,0 +1,33 @@
+<div id="settings-detail">
+  <div class="card-header">
+    <div class="card-options">
+      <%= link_to "/faqs/new", remote: true, class: "btn btn-secondary btn-sm ml-1" do %>
+      <i class="fe fe-plus" style="vertical-align: -3px;"></i> <%=t :new%>
+      <%end%>
+    </div>
+  </div>
+  <div class="card-body">
+    <ul class="list-group card-list-group">
+      <% for faq in Faq.all%>
+      <li class="list-group-item">
+        <div class="media">
+          <div class="media-object"></div>
+          <div class="media-body">
+            <div class="media-heading">
+              <small class="float-right text-muted">
+                <%= link_to "/faqs/#{faq.id}/delete", remote: true, class: "icon" ,data: { confirm: 'Are you sure?' } do %>
+                <i class="fe fe-trash" style='vertical-align:-3px;'></i>
+                <%end%>
+                <%= link_to "/faqs/#{faq.id}/edit", remote: true, class: "icon" do %>
+                <i class="fe fe-edit" style='vertical-align:-3px;'></i>
+                <%end%>
+              </small>
+              <h5><%= faq.question%></h5>
+            </div>
+          </div>
+        </div>
+      </li>
+      <%end%>
+    </ul>
+  </div>
+</div>

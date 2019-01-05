@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190102131316) do
+ActiveRecord::Schema.define(version: 20190105104540) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "title",            limit: 255
@@ -64,6 +64,32 @@ ActiveRecord::Schema.define(version: 20190102131316) do
   add_index "categorizations", ["advertisement_id"], name: "index_categorizations_on_advertisement_id", using: :btree
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
   add_index "categorizations", ["uuid"], name: "index_categorizations_on_uuid", unique: true, using: :btree
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",             limit: 255
+    t.string   "phone_number",     limit: 255
+    t.string   "email",            limit: 255
+    t.string   "telegram_channel", limit: 255
+    t.string   "instagram_page",   limit: 255
+    t.string   "address",          limit: 255
+    t.text     "about_us",         limit: 65535
+    t.string   "uuid",             limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "fax",              limit: 255
+  end
+
+  add_index "companies", ["uuid"], name: "index_companies_on_uuid", unique: true, using: :btree
+
+  create_table "faqs", force: :cascade do |t|
+    t.string   "question",   limit: 255
+    t.text     "answer",     limit: 65535
+    t.string   "uuid",       limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "faqs", ["uuid"], name: "index_faqs_on_uuid", unique: true, using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name",         limit: 255

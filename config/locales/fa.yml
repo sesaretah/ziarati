@@ -227,10 +227,9 @@ fa:
             nation_id: 'ملیت'
             passport_no: 'شماره گذرنامه '
             father_name: 'نام پدر'
-        agency:
-            name: 'نام شرکت'
-            subdomain: 'دامنه'
-            tel: 'تلفن'
+        company:
+            name: 'نام '
+            phone_number: 'تلفن'
             mobile: 'تلفن همراه'
             fax: 'فکس'
             telegram_channel: 'کانال تلگرام'
@@ -240,10 +239,9 @@ fa:
             about_us: 'درباره ما'
         advertisements:
             title: 'عنوان '
-        tour:
-          start_date: 'رفت'
-          end_date: 'برگشت '
-          details: 'توضیحات'
+        faq:
+          question: 'پرسش'
+          answer: 'پاسخ '
         blog:
             title: 'عنوان'
             content: 'متن'
@@ -260,6 +258,12 @@ fa:
     page_gap: "&hellip;"
     previous_label: "قبلی"
     next_label: "بعدی"
+  company_form: 'فرم اطلاعات '
+  about_us: 'درباره ما'
+  new: 'جدید '
+  faqs: 'پرسش های متداول '
+  title: 'عنوان '
+  categories: 'دسته بندی ها'
   submition_date: 'زمان ثبت'
   awaiting_advertisements: 'تبلیغات بررسی نشده'
   copyrights: 'کلیه ی حقوق این سایت متعق است به'

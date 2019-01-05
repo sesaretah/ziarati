@@ -1,16 +1,17 @@
 <div id='settings-detail'>
-<%= form_tag '/categories', remote: true, method: :post do%>
-<div class="row">
-  <div class="col-md-5">
-    <div class="form-group">
-      <label class="form-label"><%=t :hotel_name%></label>
-      <%= text_field_tag :title, nil , class: "form-control" %>
+  <div class="card-header">
+    <%= form_tag '/categories', remote: true, method: :post do%>
+    <div class="row p-0">
+      <div class="col-md-9">
+        <%= text_field_tag :title, nil , class: "form-control", placeholder: t(:title) %>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-secondary"><%=t :submit%></button>
+      </div>
     </div>
+    <%end%>
   </div>
-  <div class="col-md-2">
-    <button type="submit" class="btn btn-primary" style="margin-top:26px"><%=t :submit%></button>
+  <div class="card-body">
+    <%= render partial: 'categories/list'%>
   </div>
-</div>
-<%end%>
-<%= render partial: 'categories/list'%>
 </div>

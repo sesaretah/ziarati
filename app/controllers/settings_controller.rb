@@ -6,5 +6,5 @@ class SettingsController < ApplicationController
   def sections
     @section = params[:section]
   end
-  
+
 end

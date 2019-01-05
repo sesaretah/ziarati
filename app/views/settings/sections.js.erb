@@ -3,3 +3,13 @@ $(".list-group-item-action.active").removeClass('active');
 $("#settings-detail").replaceWith("<%= escape_javascript(render(:partial => 'settings/awaiting_ads')) %>");
 $("#awaiting_ads-nav").addClass('active');
 <%end%>
+
+<% if @section == 'categories'%>
+$("#settings-detail").replaceWith("<%= escape_javascript(render(:partial => 'categories/form')) %>");
+$("#categories-nav").addClass('active');
+<%end%>
+
+<% if @section == 'faqs'%>
+$("#settings-detail").replaceWith("<%= escape_javascript(render(:partial => 'faqs/list')) %>");
+$("#faq-nav").addClass('active');
+<%end%>

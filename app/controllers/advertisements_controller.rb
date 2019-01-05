@@ -1,4 +1,5 @@
 class AdvertisementsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy, :check, :change_rank]
 
   def change_rank

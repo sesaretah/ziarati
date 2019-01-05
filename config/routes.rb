@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :companies
+  resources :faqs
   resources :blogs
   devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions"}
   resources :uploads
@@ -14,4 +16,6 @@ Rails.application.routes.draw do
   get '/blogs/change_rank/:id', to: "blogs#change_rank"
   get '/settings', to: "settings#index"
   get '/settings/section', to: "settings#sections"
+
+  post '/categories', to: "categories#create"
 end

@@ -1,0 +1,170 @@
+<div class="card">
+<%= form_for(@company) do |f| %>
+<div class="card-header">
+  <h3 class="card-title"><%=t :company_form %></h3>
+</div>
+<% if @company.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+  <ul>
+    <% @company.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <%= f.label :name, class: "form-label" %>
+        <%= f.text_field :name , class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :phone_number, class: "form-label" %>
+        <div class="input-group">
+          <span class="input-group-prepend" id="basic-addon1">
+            <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+          </span>
+          <%= f.text_field :phone_number, class: "form-control", placeholder: "", style: 'direction: ltr;' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :fax, class: "form-label" %>
+        <div class="input-group">
+          <span class="input-group-prepend" id="basic-addon1">
+            <span class="input-group-text"><i class="fa fa-fax" aria-hidden="true"></i></span>
+          </span>
+          <%= f.text_field :fax , class: "form-control", placeholder: "" , style: 'direction: ltr;'%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :telegram_channel, class: "form-label" %>
+        <div class="input-group">
+          <span class="input-group-prepend" id="basic-addon1">
+            <span class="input-group-text"><i class="fab fa-telegram"></i></span>
+          </span>
+          <%= f.text_field :telegram_channel , class: "form-control", placeholder: "" , style: 'direction: ltr;'%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :instagram_page, class: "form-label" %>
+        <div class="input-group">
+          <span class="input-group-prepend" id="basic-addon1">
+            <span class="input-group-text"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+          </span>
+          <%= f.text_field :instagram_page , class: "form-control", placeholder: "", style: 'direction: ltr;' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :email, class: "form-label" %>
+        <div class="input-group">
+          <span class="input-group-prepend" id="basic-addon1">
+            <span class="input-group-text">@</span>
+          </span>
+          <%= f.text_field :email , class: "form-control", placeholder: "", style: 'direction: ltr;' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="form-group">
+        <%= f.label :address, class: "form-label" %>
+        <%= f.text_area :address , class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <% if @upload_ids.blank?%>
+  <%= hidden_field_tag :attachments, ''%>
+  <%else%>
+  <%= hidden_field_tag :attachments, @upload_ids.split(',')%>
+  <%end%>
+  <%= f.hidden_field :about_us%>
+  <%= f.label :about_us, class: "form-label" %>
+  <trix-editor input="company_about_us"></trix-editor>
+<%end%>
+</div>
+<div class="card-footer text-right">
+  <button id='submit-btn' type="submit" class="btn btn-primary"><%=t :submit%></button>
+</div>
+<script>
+$( "#submit-btn" ).click(function() {
+  console.log('clicked');
+  $( ".<%= params[:action]%>_company" ).submit();
+});
+</script>
+</div>
+<script>
+$(document).ready(function() {
+Trix.config.attachments.preview.caption = {
+  name: false,
+  size: false
+};
+
+function uploadAttachment(attachment) {
+  var csrfToken = $('meta[name="csrf-token"]').attr('content');
+  var file = attachment.file;
+  var form = new FormData;
+  var endpoint = "/uploads";
+  form.append("Content-Type", file.type);
+  form.append("file", file);
+  form.append("upload[uploadable_type]", 'Blog');
+  form.append("upload[uploadable_id]", '0');
+  form.append("authenticity_token", window._token);
+
+  xhr = new XMLHttpRequest;
+  xhr.open("POST", endpoint, true);
+  xhr.setRequestHeader("X-CSRF-Token", csrfToken);
+
+  xhr.upload.onprogress = function(event) {
+    var progress = event.loaded / event.total * 100;
+    return attachment.setUploadProgress(progress);
+  };
+
+  xhr.onload = function() {
+    if (this.status >= 200 && this.status < 300) {
+      var data = JSON.parse(this.responseText);
+      $('#attachments').val($('#attachments').val() + ',' + data.id);
+        return attachment.setAttributes({
+        url: data.extra
+      });
+    }
+  };
+
+  return xhr.send(form);
+};
+
+document.addEventListener("trix-attachment-add", function(event) {
+  var attachment = event.attachment;
+  if (attachment.file) {
+    return uploadAttachment(attachment);
+  }
+});
+});
+</script>
