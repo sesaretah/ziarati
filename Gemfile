@@ -45,7 +45,6 @@ group :development do
   gem 'spring'
 end
 gem 'devise'
-gem 'ckeditor'
 gem 'paperclip'
 gem 'mysql2',          '~> 0.3.18', :platform => :ruby
 gem 'font-awesome-rails'
