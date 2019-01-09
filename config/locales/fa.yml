@@ -259,6 +259,8 @@ fa:
     page_gap: "&hellip;"
     previous_label: "قبلی"
     next_label: "بعدی"
+  sign_in_or_sign_up: 'ثبت نام | ورود'
+  change_current_role: 'تغییر نقش'
   slides: 'اسلایدها'
   related_advertisements: 'تعداد آگهی ها'
   all: 'همه '

@@ -1,6 +1,7 @@
 class FaqsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_faq, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:create, :new, :edit, :update, :destroy]
 
   # GET /faqs
   # GET /faqs.json
@@ -76,5 +77,11 @@ class FaqsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def faq_params
       params.require(:faq).permit(:question, :answer, :uuid)
+    end
+
+    def check_user
+      if !grant_access("ability_to_change_faqs", current_user)
+        head(403)
+      end
     end
 end

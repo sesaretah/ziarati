@@ -1,15 +1,20 @@
 class BlogsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :check, :change_rank]
+  before_filter :check_user, :except => [:show, :index, :change_rank]
 
   def change_rank
-    if params[:move] == 'up'
-      @blog.rank += 1
+    if !grant_access("ability_to_post_blog", current_user)
+      head(403)
     else
-      @blog.rank -= 1
+      if params[:move] == 'up'
+        @blog.rank += 1
+      else
+        @blog.rank -= 1
+      end
+      @blog.save
+      redirect_to '/'
     end
-    @blog.save
-    redirect_to '/'
   end
 
   def check
@@ -108,5 +113,11 @@ class BlogsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def blog_params
     params.require(:blog).permit(:title, :content, :agency_id, :uuid, :abstract)
+  end
+
+  def check_user
+    if !grant_access("ability_to_post_blog", current_user)
+      head(403)
+    end
   end
 end

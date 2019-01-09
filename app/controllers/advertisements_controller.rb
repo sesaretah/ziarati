@@ -1,6 +1,8 @@
 class AdvertisementsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy, :check, :change_rank, :change_status, :change_size]
+  before_action :check_user, only: [:new, :edit, :update, :destroy, :create]
+  before_action :verify_ads, only: [:change_status, :change_size, :check]
 
   def change_status
     if params[:status] == "1"
@@ -21,13 +23,17 @@ class AdvertisementsController < ApplicationController
   end
 
   def change_rank
-    if params[:move] == 'up'
-      @advertisement.rank += 1
+    if !grant_access("ability_to_verify_ads", current_user)
+      head(403)
     else
-      @advertisement.rank -= 1
+      if params[:move] == 'up'
+        @advertisement.rank += 1
+      else
+        @advertisement.rank -= 1
+      end
+      @advertisement.save
+      redirect_to '/'
     end
-    @advertisement.save
-    redirect_to '/'
   end
 
   def check
@@ -63,6 +69,9 @@ class AdvertisementsController < ApplicationController
 
   # GET /advertisements/1/edit
   def edit
+    if !owner(@advertisement, current_user)
+      head(403)
+    end
     @upload_ids = Upload.where(uploadable_type: 'Advertisement', uploadable_id: @advertisement.id).pluck(:id)
   end
 
@@ -88,6 +97,9 @@ class AdvertisementsController < ApplicationController
   # PATCH/PUT /advertisements/1
   # PATCH/PUT /advertisements/1.json
   def update
+    if !owner(@advertisement, current_user)
+      head(403)
+    end
     respond_to do |format|
       if @advertisement.update(advertisement_params)
         @advertisement.user_id = current_user.id
@@ -104,6 +116,9 @@ class AdvertisementsController < ApplicationController
   # DELETE /advertisements/1
   # DELETE /advertisements/1.json
   def destroy
+    if !owner(@advertisement, current_user)
+      head(403)
+    end
     @advertisement.destroy
     respond_to do |format|
       format.html { redirect_to advertisements_url, notice: 'advertisement was successfully destroyed.' }
@@ -121,5 +136,17 @@ class AdvertisementsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def advertisement_params
     params.require(:advertisement).permit(:title, :content, :agency_id, :uuid, :category_id)
+  end
+
+  def verify_ads
+    if !grant_access("ability_to_verify_ads", current_user)
+      head(403)
+    end
+  end
+
+  def check_user
+    if !grant_access("ability_to_post_ads", current_user)
+      head(403)
+    end
   end
 end

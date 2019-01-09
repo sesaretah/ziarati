@@ -1,4 +1,5 @@
 class AccessControlsController < ApplicationController
+  before_action :check_user
   before_action :set_access_control, only: [:show, :edit, :update, :destroy]
 
   # GET /access_controls
@@ -30,6 +31,7 @@ class AccessControlsController < ApplicationController
       if @access_control.save
         format.html { redirect_to @access_control, notice: 'Access control was successfully created.' }
         format.json { render :show, status: :created, location: @access_control }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @access_control.errors, status: :unprocessable_entity }
@@ -44,6 +46,7 @@ class AccessControlsController < ApplicationController
       if @access_control.update(access_control_params)
         format.html { redirect_to @access_control, notice: 'Access control was successfully updated.' }
         format.json { render :show, status: :ok, location: @access_control }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @access_control.errors, status: :unprocessable_entity }
@@ -70,5 +73,11 @@ class AccessControlsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def access_control_params
       params.require(:access_control).permit(:ability_to_post_ads, :ability_to_post_blog, :ability_to_verify_ads, :ability_to_change_categories, :ability_to_change_faqs, :ability_to_change_roles, :ability_to_assign_roles, :uuid, :role_id)
+    end
+
+    def check_user
+      if !grant_access("ability_to_change_roles", current_user)
+        head(403)
+      end
     end
 end

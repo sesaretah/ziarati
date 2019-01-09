@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :assignments
 
+  has_many :roles, :through => :assignments
+  has_many :assignments, dependent: :destroy
+
   def email_required?
     false
   end

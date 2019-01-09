@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190109121839) do
+ActiveRecord::Schema.define(version: 20190109135027) do
 
   create_table "access_controls", force: :cascade do |t|
     t.boolean  "ability_to_post_ads"
@@ -168,8 +168,10 @@ ActiveRecord::Schema.define(version: 20190109121839) do
     t.string   "mobile",                 limit: 255
     t.string   "fullname",               limit: 255
     t.string   "phone_number",           limit: 255
+    t.string   "current_role_id",        limit: 255
   end
 
+  add_index "users", ["current_role_id"], name: "index_users_on_current_role_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

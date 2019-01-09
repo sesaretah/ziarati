@@ -10,6 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
     respond_to do |format|
       if @user.save
         @profile = Profile.create(name: params[:user][:fullname], user_id: @user.id, phone_number: params[:user][:mobile])
+        
         sign_in(@user)
         format.html { redirect_to after_sign_in_path_for(@user), notice: 'Welcome' }
       else

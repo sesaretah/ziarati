@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   post '/roles', to: "roles#create"
   get '/roles/:id/destroy', to: "roles#destroy"
+  get '/roles/access/:id', to: "roles#access"
+  get '/roles/change_current_role', to: "roles#change_current_role"
 
   post '/assignments', to: "assignments#create"
   get '/assignments/:id/destroy', to: "assignments#destroy"
@@ -31,5 +33,7 @@ Rails.application.routes.draw do
   get '/advertisements/change_size/:id', to: "advertisements#change_size"
 
   get '/uploads/remoted/:id', to: "uploads#remoted"
+
+
 
 end

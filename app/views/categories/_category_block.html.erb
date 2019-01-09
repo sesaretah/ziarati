@@ -1,5 +1,5 @@
 <div class="card">
-  <a href="/advertisement?category_id=<%= category.id%>"><img class="card-img-top" src="<%= category.cover('medium')%>" alt=""></a>
+  <a href="/advertisements?category_id=<%= category.id%>"><img class="card-img-top" src="<%= category.cover('medium')%>" alt=""></a>
   <div class="card-body d-flex flex-column">
     <h4><a href="#"><%= category.title%></a></h4>
     <div class="d-flex align-items-center pt-5 mt-auto">
@@ -14,12 +14,9 @@
         <%end%>
         <%end%>
       </div>
-
       <div>
-
         <small class="d-block text-muted"></small>
       </div>
-
     </div>
   </div>
 </div>
