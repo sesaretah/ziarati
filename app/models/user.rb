@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :advertisements
   has_one :profile
+  has_many :assignments
 
   def email_required?
     false

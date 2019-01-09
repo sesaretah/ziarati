@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ability_to_post_ads: false
+  ability_to_post_blog: false
+  ability_to_verify_ads: false
+  ability_to_change_categories: false
+  ability_to_change_faqs: false
+  ability_to_change_roles: false
+  ability_to_assign_roles: false
+  uuid: MyString
+  role_id: MyString
+
+two:
+  ability_to_post_ads: false
+  ability_to_post_blog: false
+  ability_to_verify_ads: false
+  ability_to_change_categories: false
+  ability_to_change_faqs: false
+  ability_to_change_roles: false
+  ability_to_assign_roles: false
+  uuid: MyString
+  role_id: MyString
