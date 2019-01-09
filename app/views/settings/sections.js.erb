@@ -24,3 +24,8 @@ $("#roles-nav").addClass('active');
 $("#settings-detail").replaceWith("<%= escape_javascript(render(:partial => 'assignments/form')) %>");
 $("#assignments-nav").addClass('active');
 <%end%>
+
+<% if @section == 'slides'%>
+$("#settings-detail").replaceWith("<%= escape_javascript(render(:partial => 'settings/slides')) %>");
+$("#slides-nav").addClass('active');
+<%end%>

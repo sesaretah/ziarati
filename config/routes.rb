@@ -19,9 +19,17 @@ Rails.application.routes.draw do
   get '/settings/section', to: "settings#sections"
 
   post '/categories', to: "categories#create"
+  get '/categories/:id/destroy', to: "categories#destroy"
+  get '/categories/change_rank/:id', to: "categories#change_rank"
+
   post '/roles', to: "roles#create"
   get '/roles/:id/destroy', to: "roles#destroy"
 
   post '/assignments', to: "assignments#create"
   get '/assignments/:id/destroy', to: "assignments#destroy"
+  get '/advertisements/change_status/:id', to: "advertisements#change_status"
+  get '/advertisements/change_size/:id', to: "advertisements#change_size"
+
+  get '/uploads/remoted/:id', to: "uploads#remoted"
+
 end

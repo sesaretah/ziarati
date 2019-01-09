@@ -1,7 +1,10 @@
 <div class="card">
   <div class='card-header'>
+    <div class="col-md-8">
     <%= sanitize @blog.title%>
-    <div class='card-options'>
+  </div>
+    <div class="col-md-4">
+    <div class='card-options pull-left'>
       <label class="custom-switch ml-2 mt-1" style='float: left;'>
         <input type="checkbox" name="view_<%=@blog.id%>" id='view_<%= @blog.id%>' <%if @blog.view_in_homepage%>checked<%end%> class="custom-switch-input">
         <span class="custom-switch-indicator"></span>
@@ -47,8 +50,12 @@
       </script>
       <a href="/blogs/<%=@blog.uuid%>/edit" class='btn btn-secondary'><i class="fe fe-edit" style="vertical-align:-3px;"></i> <%=t :edit%></a>
     </div>
+    </div>
   </div>
   <div class='card-body'>
+    <div class="alert alert-secondary" role="alert">
+      <%= sanitize @blog.abstract%>
+    </div>
     <div id="trix-content">
       <%= sanitize @blog.content%>
     </div>

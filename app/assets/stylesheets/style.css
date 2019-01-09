@@ -108,3 +108,5 @@ height: 100%; width: 100%;
 #trix-content img {
   display: flex;
 }
+
+.blogShort{ border-bottom:1px solid #ddd;}

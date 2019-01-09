@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190108161415) do
+ActiveRecord::Schema.define(version: 20190109121839) do
 
   create_table "access_controls", force: :cascade do |t|
     t.boolean  "ability_to_post_ads"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20190108161415) do
     t.integer  "rank",             limit: 4
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.text     "abstract",         limit: 65535
   end
 
   add_index "blogs", ["uuid"], name: "index_blogs_on_uuid", unique: true, using: :btree
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20190108161415) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "integer_id", limit: 4
+    t.integer  "rank",       limit: 4
   end
 
   add_index "categories", ["uuid"], name: "index_categories_on_uuid", unique: true, using: :btree

@@ -10,12 +10,22 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.label :abstract, class: "form-label" %>
+          <%= f.text_area :abstract, class: "form-control"%>
+        </div>
+      </div>
+    </div>
+
     <% if @upload_ids.blank?%>
     <%= hidden_field_tag :attachments, ''%>
     <%else%>
     <%= hidden_field_tag :attachments, @upload_ids.split(',')%>
     <%end%>
     <%= f.hidden_field :content%>
+    <%= f.label :content, class: "form-label" %>
     <trix-editor input="blog_content"></trix-editor>
   <%end%>
   <div class="row">

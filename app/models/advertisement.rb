@@ -1,9 +1,7 @@
 class Advertisement < ActiveRecord::Base
   self.primary_key = 'uuid'
 
-  has_many :categories, :through => :categorizations
-  has_many :categorizations, dependent: :destroy
-
+  belongs_to :category
   belongs_to :user
 
   def cover(style)

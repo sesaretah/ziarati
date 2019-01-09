@@ -17,7 +17,14 @@
     <%end%>
     <%= f.hidden_field :content%>
     <trix-editor input="advertisement_content"></trix-editor>
+    <div class="col-md-3 mt-2">
+      <div class="form-group">
+        <label class="form-label"><%=t :advertisement_category%></label>
+        <%= f.select(:category_id, options_for_select(Category.all.collect { |p| [ p.title, p.id ] }, @advertisement.category_id), {},{class: "form-control"}) %>
+      </div>
+    </div>
   <%end%>
+
   <div class="row">
     <div class="col-md-12">
       <h5 class="mt-5"><%=t :cover_photo%></h5>

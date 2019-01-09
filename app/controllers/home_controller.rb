@@ -3,5 +3,6 @@ class HomeController < ApplicationController
   def index
     @advertisements = Advertisement.where(view_in_homepage: true).order('rank desc')
     @blogs = Blog.where(view_in_homepage: true).order('rank desc')
+    @categories = Category.all.order('rank desc')
   end
 end
