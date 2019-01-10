@@ -35,7 +35,7 @@
   <div class="card-body">
     <% for blog in @blogs.order('created_at desc')%>
     <div class="row">
-      <div class="col-md-12 blogShort">
+      <div class="col-md-12 blogShort mt-2">
         <h4><%= link_to blog.title, blog%></h4>
         <article>
           <p>
